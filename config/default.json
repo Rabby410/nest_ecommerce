@@ -1,4 +1,16 @@
 {
     "port": "3100",
-    "mongodbUrl": "mongodb+srv://admin:Rk.Bd.410@ecommerce.hbqspbb.mongodb.net/"
+    "mongodbUrl": "mongodb+srv://admin:Rk.Bd.410@ecommerce.hbqspbb.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp",
+    "adminSecretToken": "admin@2542",
+    "jwtSecret": "tokenSecret@Rk2542",
+    "emailService": {
+        "testDomain": "sandbox0792ac8c95274cb8aedfcce0759d2b1c.mailgun.org",
+        "privateKey": "1d009b0f847efbdcf8e21d9b5df695d7-db137ccd-835b8115",
+        "publicKey": "pubkey-15aa03628185692f9961a3a0e5c164bd",
+        "emailTemplates": {
+            "forgetPassword": "forget-password-template",
+            "verifyEmail": "verify-email-template",
+            "orderSuccess": "order-success"
+        }
+    }
 }

@@ -22,4 +22,6 @@ export class CreateUserDto {
     @IsString()
     @IsOptional()
     secretToken?: string;
+
+    isVarified?: boolean;
 }
