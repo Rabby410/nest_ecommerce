@@ -26,7 +26,7 @@ export class UsersService {
         createUserDto.secretToken === config.get('adminSecretToken')
       ) {
         throw new Error('Not allowed to create admin');
-      } else {
+      } else if(createUserDto.type !== userTypes.CUSTOMER) {
         createUserDto.isVarified = true;
       }
       // user id already exist
@@ -44,10 +44,11 @@ export class UsersService {
       otpExpiryTime.setMinutes(otpExpiryTime.getMinutes() + 10);
       // Create the user
       const newUser = await this.userDB.create({
-        ...CreateUserDto,
+        ...createUserDto,
         otp,
         otpExpiryTime,
       });
+      
       if (newUser.type !== userTypes.ADMIN) {
         sendEmail(
           newUser.email,
